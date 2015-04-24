@@ -18,6 +18,7 @@ int main(int argc, char** argv) {
     // Dichiara le variabili locali
     FILE *puntafile;
     int i;
+    int quantoHoLetto;
     char fileName[MAX_STRLEN+1];
     studente elenco[N];
     // Codice per la richiesta del nome del file
@@ -30,9 +31,9 @@ int main(int argc, char** argv) {
     else{
         printf("---Stampa---\n");
         while(!feof(puntafile)){
-            fread(elenco,sizeof(studente),N,puntafile);
+            quantoHoLetto=fread(elenco,sizeof(studente),N,puntafile);
             // Codice per la stampa a schermo
-            for(i=0;i<N;i++){
+            for(i=0;i<quantoHoLetto;i++){
 		printf("Nome: %s\n",elenco[i].nome);
                 printf("Cognome: %s\n",elenco[i].cognome);
                 printf("Età: %d\n",elenco[i].eta);
